@@ -3,6 +3,7 @@ let _currentTime;
 // timer function
 let _timer = 0;
 
+// time in btn
 const clockIn = () => {
   const status = getStatus();
 
@@ -12,6 +13,7 @@ const clockIn = () => {
   }
 }
 
+// time out btn
 const clockOut = () => {
   const status = getStatus();
 
@@ -21,6 +23,7 @@ const clockOut = () => {
   }
 }
 
+// clear btn
 const clearTime = () => {
   const status = getStatus();
 
