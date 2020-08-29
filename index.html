@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'">
+  <title>Time Tracking App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="main-app">
+    <h1 class="main-app-title">Time Tracking</h1>
+    <div class="current-status">
+      <p class="current-status-label">Current Status: </p>
+      <p id="current-status-text" class="current-status-text">Not Working</p>
+    </div>
+    <div class="time-working">
+      <p class="time-working-label">Time worked: </p>
+      <p id="time-working-text" class="time-working-text">00:00:00</p>
+    </div>
+    <div class="time-btn-container">
+      <button type="button" class="btn btn-clock-in" onClick="clockIn()">START WORK</button>
+      <button type="button" class="btn btn-clock-out" onClick="clockOut()">END WORK</button>
+    </div>
+    <div class="time-btn-container">
+      <button type="button" class="btn btn-clear-time" onClick="clearTime()">CLEAR TIME</button>
+      <button type="button" class="btn btn-submit-time" onClick="submitTime()">SUBMIT TIME</button>
+    </div>
+  </div>
+  <script src="timeClock.js"></script>
+  <script src="fileManager.js"></script>
+</body>
+</html>
