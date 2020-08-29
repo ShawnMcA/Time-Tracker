@@ -1,6 +1,5 @@
 const  { app, BrowserWindow } = require('electron');
 const nativeImage = require('electron').nativeImage;
-let image = nativeImage.createFromPath(__dirname + './png/TimeTracker.png')
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -10,7 +9,7 @@ function createWindow() {
       nodeIntegration: true, 
       worldSafeExecuteJavaScript: true
     },
-    icon: image
+    icon: __dirname + '/png/TimeTracker.png'
   });
 
   win.loadFile('index.html')
@@ -19,7 +18,7 @@ function createWindow() {
 app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
-  if(process.platform !== 'win32') {
+  if(process.platform !== 'darwin') {
     app.quit();
   }
 });

@@ -20,6 +20,7 @@ const submitTime = () => {
     writeToJSON();
     refactorJSON();
     writeToJSON();
+    displayTotalHours();
   }
   
   clearTime();
@@ -48,4 +49,15 @@ const refactorJSON = () => {
     timeData['hoursWorked'] += Math.floor(hours);
     hours = 0;
   }
+}
+
+const displayTotalHours = () => {
+  const timeWorked = document.getElementById('total-time-text');
+  timeWorked.style.visibility = 'initial';
+  
+  let totalTime = [timeData['hoursWorked'], timeData['minutesWorked'], timeData['secondsWorked']];
+  let totalTimeTex = '';
+  totalTimeText = timeToText(totalTime);
+
+  timeWorked.innerHTML = `Total Time Worked: ${totalTimeText}`;
 }
