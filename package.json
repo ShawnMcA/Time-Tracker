@@ -17,10 +17,13 @@
  "devDependencies": {
   "electron": "^10.1.0",
   "electron-packager": "^15.1.0"
- }, 
+ },
  "build": {
-   "win": {
-     "icon": "png/TimeKeeper-sm.png"
-   }
+  "win": {
+   "icon": "png/TimeKeeper-sm.png"
+  }
+ },
+ "dependencies": {
+  "electron-store": "^6.0.0"
  }
 }

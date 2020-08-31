@@ -1,8 +1,12 @@
+const { ipcRenderer } = require('electron');
 const fs = require("fs");
 const timeData = require("./timeData");
 
 
 const submitTime = () => {
+  // TESTING
+  ipcRenderer.send('requestTimeData', 'hoursWorked');
+
   const totalTime = document.getElementById('time-working-text');
   let time = totalTime.innerHTML;
   let status = getStatus();
@@ -61,3 +65,7 @@ const displayTotalHours = () => {
 
   timeWorked.innerHTML = `Total Time Worked: ${totalTimeText}`;
 }
+
+ipcRenderer.on('returnTimeData', (event, returnedTime) => {
+  console.log(returnedTime);
+});

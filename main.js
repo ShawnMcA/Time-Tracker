@@ -1,5 +1,14 @@
-const  { app, BrowserWindow } = require('electron');
-const nativeImage = require('electron').nativeImage;
+const  { app, BrowserWindow, ipcMain } = require('electron');
+const Store = require('electron-store');
+
+const store = new Store({
+  configName: 'user-preferences',
+  defaults: {
+    'hoursWorked': 0,
+    'minutesWorked': 0,
+    'secondsWorked': 0
+  }
+});
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -9,7 +18,7 @@ function createWindow() {
       nodeIntegration: true, 
       worldSafeExecuteJavaScript: true
     },
-    icon: __dirname + '/png/TimeKeeper-sm.png'
+    icon: __dirname + 'png/TimeKeeper-sm.png'
   });
 
   win.loadFile('index.html')
@@ -28,3 +37,15 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+const updateStore = newTime => {
+  store.set(newTime);
+}
+
+ipcMain.on('requestTimeData', (event, timeRequested) => {
+  if(store.has(timeRequested)){
+    event.reply('returnTimeData', store.get(timeRequested));
+  } else {
+    console.log('Error: Store does not contain the requeted item');
+  }
+})
