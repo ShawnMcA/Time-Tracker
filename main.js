@@ -9,7 +9,7 @@ function createWindow() {
       nodeIntegration: true, 
       worldSafeExecuteJavaScript: true
     },
-    icon: __dirname + '/png/TimeKeeper-sm.png'
+    icon: __dirname + '/png/TimeTracker-sm.png'
   });
 
   win.loadFile('index.html')
