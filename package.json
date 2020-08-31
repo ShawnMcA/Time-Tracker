@@ -1,5 +1,5 @@
 {
- "name": "Time-Keeper",
+ "name": "Time-Tracker",
  "version": "1.0.0",
  "description": "App to track working hours",
  "author": "Shawn McAllister",
@@ -10,9 +10,9 @@
  },
  "scripts": {
   "start": "electron .",
-  "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=png/TimeKeeper-sm.png --prune=true --out=release-builds",
-  "package-win": "electron-packager . Time-Keeper --overwrite --asar=true --platform=win32 --arch=ia32 --icon=png/TimeKeeper-sm.png --prune=true --out=release-builds --app-copyright=\"Copyright (C) 2020 Shawn McAllister\" --version-string.CompanyName=ShawnMcAllister --version-string.FileDescription=\"Time Keeper\" --version-string.ProductName=\"Time Keeper\"",
-  "package-linux": "electron-packager . Time-Keeper --overwrite --asar=true --platform=linux --arch=x64 --icon=png/TimeKeeper-sm.pngg --prune=true --out=release-builds"
+  "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=png/TimeTracker-sm.png --prune=true --out=release-builds",
+  "package-win": "electron-packager . Time-Tracker --overwrite --asar=true --platform=win32 --arch=ia32 --icon=png/TimeTracker-sm.png --prune=true --out=release-builds --app-copyright=\"Copyright (C) 2020 Shawn McAllister\" --version-string.CompanyName=ShawnMcAllister --version-string.FileDescription=\"Time Tracker\" --version-string.ProductName=\"Time Tracker\"",
+  "package-linux": "electron-packager . Time-Tracker --overwrite --asar=true --platform=linux --arch=x64 --icon=png/TimeTracker-sm.pngg --prune=true --out=release-builds"
  },
  "devDependencies": {
   "electron": "^10.1.0",
