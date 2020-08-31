@@ -38,14 +38,24 @@ app.on('activate', () => {
   }
 });
 
-const updateStore = newTime => {
-  store.set(newTime);
-}
-
-ipcMain.on('requestTimeData', (event, timeRequested) => {
-  if(store.has(timeRequested)){
-    event.reply('returnTimeData', store.get(timeRequested));
+ipcMain.handle('requestTimeData', async (event, timeRequested) => {
+  if(timeRequested === 'timeData'){
+    const result = await store.store;
+    return result;
   } else {
-    console.log('Error: Store does not contain the requeted item');
+    console.log('Error: Request was not valid. Can only return timeData object.');
   }
-})
+});
+
+ipcMain.handle('updateTimeData', async (event, infoToUpdate, newTime) => {
+  if(infoToUpdate === 'all') {
+    for(let time in newTime){
+      let oldTime = store.get(time);
+      store.set(time, (newTime[time] + oldTime)); 
+    }
+  }
+});
+
+ipcMain.handle('replaceTimeData', async (event, newTime) => {
+  store.set(newTime);
+});
